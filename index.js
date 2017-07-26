@@ -2,6 +2,7 @@ module.exports = function smTest(dispatch) {
 	
 	let CID = null;
 	let boss = undefined;
+	let teleLocation = null;
 	
 	const duchId = [488, 10];
 	const dukeId = [488, 13];
@@ -94,20 +95,26 @@ module.exports = function smTest(dispatch) {
 	
 		function dukeTele()
 	{
-		dispatch.toClient('S_SPAWN_ME', 1, {
+		/*dispatch.toClient('S_SPAWN_ME', 1, {
 			target: CID,
 			x: dukeX,
 			y: dukeY,
 			z: dukeZ,
 			w: dukeW,
 			alive: 1,
-			unk: 0
-		})
+			unk: 0*/
+			
+		teleLocation = {
+			x: dukeX,
+			y: dukeY,
+			z: dukeZ
+		};
+		dispatch.toClient('S_INSTANT_MOVE', 1, Object.assign(teleLocation, { id: cid}))
 	}
 	
 		function malTele()
 	{
-		dispatch.toClient('S_SPAWN_ME', 1, {
+		/*dispatch.toClient('S_SPAWN_ME', 1, {
 			target: CID,
 			x: melX,
 			y: melY,
@@ -115,7 +122,14 @@ module.exports = function smTest(dispatch) {
 			w: melW,
 			alive: 1,
 			unk: 0
-		})
+		})*/
+		
+		teleLocation = {
+			x: melX,
+			y: melY,
+			z: melZ
+		};
+		dispatch.toClient('S_INSTANT_MOVE', 1, Object.assign(teleLocation, { id: cid}))
 		duchBool = false;
 	}
 }
