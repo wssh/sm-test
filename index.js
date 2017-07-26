@@ -109,7 +109,7 @@ module.exports = function smTest(dispatch) {
 			y: dukeY,
 			z: dukeZ
 		};
-		dispatch.toClient('S_INSTANT_MOVE', 1, Object.assign(teleLocation, { id: cid}))
+		dispatch.toClient('S_INSTANT_MOVE', 1, Object.assign(teleLocation, { id: CID}))
 	}
 	
 		function malTele()
@@ -129,7 +129,7 @@ module.exports = function smTest(dispatch) {
 			y: melY,
 			z: melZ
 		};
-		dispatch.toClient('S_INSTANT_MOVE', 1, Object.assign(teleLocation, { id: cid}))
+		dispatch.toClient('S_INSTANT_MOVE', 1, Object.assign(teleLocation, { id: CID}))
 		duchBool = false;
 	}
 }
